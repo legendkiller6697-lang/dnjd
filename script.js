@@ -82,6 +82,35 @@ function buildHostelDetail(hostelNumber) {
   return roomMap[hostelNumber] || roomMap["3"];
 }
 
+async function enterFullscreen() {
+  if (!document.fullscreenElement && document.documentElement.requestFullscreen) {
+    try {
+      await document.documentElement.requestFullscreen();
+    } catch (error) {
+      // Browsers may block fullscreen without a direct user gesture.
+    }
+  }
+}
+
+async function exitFullscreen() {
+  if (document.fullscreenElement && document.exitFullscreen) {
+    try {
+      await document.exitFullscreen();
+    } catch (error) {
+      // Ignore browser-specific fullscreen exit failures.
+    }
+  }
+}
+
+async function toggleFullscreen() {
+  if (document.fullscreenElement) {
+    await exitFullscreen();
+    return;
+  }
+
+  await enterFullscreen();
+}
+
 if (colorInput && colorCodeInput) {
   colorInput.addEventListener("input", () => {
     colorCodeInput.value = colorInput.value;
@@ -164,6 +193,9 @@ if (previewName && previewReg && previewDate && previewTime && previewQr && appr
     previewHostelDetail.textContent = buildHostelDetail(hostelNumber);
   }
   updateAccent(accent);
+  enterFullscreen();
+  approvalText.addEventListener("click", toggleFullscreen);
+  approvalText.addEventListener("touchstart", toggleFullscreen, { passive: true });
 
   if (countdownBadge) {
     let secondsLeft = 30;

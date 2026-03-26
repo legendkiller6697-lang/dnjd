@@ -7,7 +7,6 @@
   --accent: #63d61f;
   --navy: #09196b;
   --rate-border: #991616;
-  --approved-green: #63d61f;
 }
 
 * {
@@ -169,10 +168,9 @@ input {
 }
 
 .app-bar-title {
-  font-size: 26px;
-  font-weight: 500;
+  font-size: 30px;
+  font-weight: 600;
   letter-spacing: 0.01em;
-  color: #f1f1f1;
 }
 
 .close-btn {
@@ -181,7 +179,7 @@ input {
   top: 11px;
   background: transparent;
   color: #fff;
-  font-size: 50px;
+  font-size: 56px;
   line-height: 1;
   font-weight: 300;
 }
@@ -197,39 +195,34 @@ input {
   border: 2px solid var(--card-border);
   border-radius: 34px;
   box-shadow: var(--phone-shadow);
-  padding: 40px 18px 0;
+  padding: 52px 10px 0;
   min-height: calc(100vh - 164px);
-  overflow: visible;
   display: flex;
   flex-direction: column;
 }
 
 .badge-circle {
+  z-index: 20;
   position: absolute;
-  top: -14px;
-  right: -12px;
-  width: 68px;
-  height: 68px;
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 34% 28%, #f2f2f2 0 16%, #dddddd 34%, #c6c6c6 58%, #b4b4b4 78%, #a7a7a7 100%);
+  top: -10px;
+  right: -15px;
+  width: 57px;
+  height: 50px;
+  border-radius: 40%;
+  
+  background: linear-gradient(180deg, #e0e0e0, #b3b2b2);
   display: grid;
   place-items: center;
-  font-size: 26px;
-  font-weight: 500;
-  color: #404040;
-  border: 2px solid #a7a7a7;
-  box-shadow:
-    inset 0 2px 4px rgba(255, 255, 255, 0.72),
-    0 8px 14px rgba(0, 0, 0, 0.16);
-  letter-spacing: -0.01em;
-  z-index: 2;
+  font-size: 24px;
+  font-weight: 600;
+  color: #414141;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.22);
 }
 
 .top-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  gap: 18px;
   align-items: start;
 }
 
@@ -239,109 +232,102 @@ input {
 }
 
 .panel-box {
-  height: 194px;
+  height: 222px;
   background: #fff;
-  border: 2px solid #3a3a3a;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+  border: 2px solid #313131;
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.23);
   display: grid;
   place-items: center;
 }
 
 .photo-panel img,
 .qr-panel img {
-  width: 146px;
-  height: 146px;
+  width: 176px;
+  height: 176px;
   object-fit: cover;
   display: block;
 }
 
 .panel-title {
-  margin: 10px 0 0;
-  font-size: 22px;
-  font-weight: 700;
+  margin: 12px 0 0;
+  font-size: 27px;
+  font-weight: 800;
   line-height: 1.15;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.16);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
 }
 
 .panel-title.strong {
-  margin-top: 16px;
+  margin-top: 18px;
 }
 
 .course-line,
 .assigned-line {
   text-align: center;
-  margin: 34px 14px 0;
-  font-size: 20px;
-  font-weight: 600;
+  margin: 40px 14px 0;
+  font-size: 24px;
+  font-weight: 650;
   line-height: 1.35;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  text-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
 }
 
 .assigned-line {
-  margin-top: 30px;
+  margin-top: 38px;
 }
 
 .datetime-row {
   display: flex;
-  justify-content: space-between;
+  justify-content:left;
   gap: 16px;
-  margin: 64px 16px 0;
-  font-size: 21px;
+  margin: 88px 22px 0;
+  font-size: 26px;
   font-weight: 700;
+  transform: translate(-5px);
+  
 }
 
 .approval-text {
-  margin: 52px 0 0;
+  margin: 64px 0 0;
   text-align: center;
-  color: var(--approved-green);
-  font-size: 31px;
-  font-weight: 800;
+  color: var(--accent);
+  font-size: 36px;
+  font-weight: 900;
   line-height: 1.1;
-  text-shadow: 0 2px 3px rgba(125, 125, 125, 0.28);
+  text-shadow: 0 2px 4px rgba(125, 125, 125, 0.34);
 }
 
 .rate-box {
-  width: 148px;
-  margin: 14px auto 0;
-  border: 3px solid var(--rate-border);
-  border-radius: 12px;
+  width: 100px;
+  margin: 18px auto 0;
+  border: 2px solid var(--rate-border);
+  border-radius: 14px;
   color: #131313;
-  font-size: 22px;
-  font-weight: 700;
-  line-height: 1;
-  padding: 3px 10px 5px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.02;
+  padding: 2px 8px 6px;
   position: relative;
-  display: grid;
-  justify-items: center;
-  row-gap: 0;
-}
-
-.rate-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
-
-.rate-row-bottom {
-  margin-top: -3px;
+  margin-bottom: 10px;
 }
 
 .star {
-  font-size: 18px;
+  position: absolute;
+  left: 7px;
+  top: 0;
+  font-size: 22px;
   color: #f4ca57;
 }
 
 .bottom-banner {
-  margin-top: 8px;
-  background: #061871;
-  padding: 28px 28px 24px;
+  margin-top: auto;
+  background: var(--navy);
+  padding: 32px 30px 28px;
   margin-bottom: 0;
 }
 
 .bottom-paper {
   background: #fff;
-  min-height: 420px;
+  min-height: 500px;
   height: 100%;
   position: relative;
   display: grid;
@@ -356,10 +342,10 @@ input {
 }
 
 .tick-ring {
-  width: 54px;
-  height: 54px;
+  width: 86px;
+  height: 86px;
   border-radius: 50%;
-  border: 3px solid #111;
+  border: 5px solid #111;
   display: grid;
   place-items: center;
   position: relative;
@@ -368,8 +354,8 @@ input {
 }
 
 .tick-core {
-  width: 28px;
-  height: 28px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   background: #20c737;
   animation: tick-core-pulse 1.8s ease-in-out infinite;
@@ -386,7 +372,7 @@ input {
 .tick-mark path {
   fill: none;
   stroke: #fff;
-  stroke-width: 4;
+  stroke-width: 5;
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-dasharray: 34;
@@ -395,25 +381,25 @@ input {
 }
 
 .details-card {
-  margin: 0;
+  margin: 0 14px;
   background: #fff;
-  border-radius: 0 0 12px 12px;
-  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.16);
-  padding: 18px 14px 22px;
+  border-radius: 0 0 14px 14px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.18);
+  padding: 24px 18px 26px;
 }
 
 .detail-label {
   margin: 0;
-  color: #656565;
-  font-size: 16px;
+  color: #505050;
+  font-size: 23px;
   font-weight: 700;
 }
 
 .detail-value {
-  margin: 4px 0 14px;
-  color: #767676;
-  font-size: 14px;
-  line-height: 1.42;
+  margin: 4px 0 18px;
+  color: #666;
+  font-size: 22px;
+  line-height: 1.38;
 }
 
 .detail-value:last-child {
@@ -421,32 +407,32 @@ input {
 }
 
 .verification-card {
-  margin: 44px 0 0;
-  border: 2px solid #222;
-  border-radius: 18px;
+  margin: 54px 14px 0;
+  border: 4px solid #222;
+  border-radius: 22px;
   background: #fff;
-  min-height: 72px;
+  min-height: 82px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 18px;
   padding: 0 20px;
-  font-size: 18px;
-  font-weight: 700;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  font-size: 25px;
+  font-weight: 800;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
 }
 
 .page-footer {
   display: grid;
   place-items: center;
-  padding: 28px 0 18px;
+  padding: 36px 0 18px;
 }
 
 .home-indicator {
-  width: 146px;
-  height: 6px;
+  width: 178px;
+  height: 7px;
   border-radius: 999px;
-  background: #9b9b9b;
+  background: #7f7f7f;
 }
 
 @keyframes tick-pop {
@@ -485,25 +471,17 @@ input {
 
 @media (max-width: 600px) {
   .app-bar-title {
-    font-size: 21px;
+    font-size: 23px;
   }
 
   .close-btn {
-    font-size: 40px;
+    font-size: 42px;
     top: 18px;
-  }
-
-  .badge-circle {
-    top: -11px;
-    right: -10px;
-    width: 66px;
-    height: 66px;
-    font-size: 25px;
   }
 
   .pass-card {
     border-radius: 28px;
-    padding: 34px 12px 0;
+    padding: 44px 14px 0;
   }
 
   .top-grid {
@@ -511,73 +489,64 @@ input {
   }
 
   .panel-box {
-    height: 154px;
+    height: 160px;
   }
 
   .photo-panel img,
   .qr-panel img {
-    width: 110px;
-    height: 110px;
+    width: 122px;
+    height: 122px;
   }
 
   .panel-title {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .course-line,
   .assigned-line,
   .datetime-row {
-    font-size: 14px;
+    font-size: 17px;
   }
 
   .course-line {
-    margin-top: 24px;
+    margin-top: 30px;
   }
 
   .assigned-line {
-    margin-top: 22px;
+    margin-top: 28px;
   }
 
   .datetime-row {
-    margin-top: 42px;
+    margin-top: 52px;
   }
 
   .approval-text {
-    margin-top: 34px;
-    font-size: 22px;
+    margin-top: 44px;
+    font-size: 27px;
   }
 
   .rate-box {
-    width: 104px;
-    font-size: 15px;
-    padding: 3px 8px 4px;
-  }
-
-  .rate-row {
-    gap: 6px;
-  }
-
-  .star {
-    font-size: 14px;
+    width: 118px;
+    font-size: 18px;
   }
 
   .bottom-banner {
-    margin-top: 6px;
-    padding: 24px 22px 20px;
+    margin-top: auto;
+    padding: 22px 18px 38px;
   }
 
   .bottom-paper {
-    min-height: 300px;
+    min-height: 360px;
   }
 
   .tick-ring {
-    width: 46px;
-    height: 46px;
+    width: 72px;
+    height: 72px;
   }
 
   .tick-core {
-    width: 24px;
-    height: 24px;
+    width: 42px;
+    height: 42px;
   }
 
   .detail-label {
@@ -590,18 +559,13 @@ input {
   }
 
   .details-card {
-    padding: 16px 12px 18px;
+    padding: 18px 14px 20px;
   }
 
   .verification-card {
-    margin-top: 26px;
-    min-height: 58px;
+    margin-top: 32px;
+    min-height: 64px;
     padding: 0 16px;
     font-size: 14px;
-  }
-
-  .home-indicator {
-    width: 118px;
-    height: 5px;
   }
 }
