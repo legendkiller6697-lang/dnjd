@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mess Pass Generator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="screen screen-active form-screen" id="formScreen">
+      <div class="form-card">
+        <p class="eyebrow">Mess Pass Maker</p>
+        <h1>Build your 2-page pass app</h1>
+        <p class="subcopy">Upload the student image, enter the details, and generate a screen styled like the reference.</p>
+
+        <form id="messPassForm" class="mess-form">
+          <label class="field">
+            <span>Student image</span>
+            <input type="file" id="photoInput" accept="image/*" required>
+          </label>
+
+          <label class="field">
+            <span>Name</span>
+            <input type="text" id="nameInput" placeholder="Akshit kala" required>
+          </label>
+
+          <label class="field">
+            <span>Registration number</span>
+            <input type="text" id="regInput" placeholder="12416321" required>
+          </label>
+
+          <label class="field">
+            <span>Meal type</span>
+            <select id="mealInput" required>
+              <option value="Breakfast">Breakfast</option>
+              <option value="Lunch" selected>Lunch</option>
+              <option value="Dinner">Dinner</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Hostel number</span>
+            <select id="hostelInput" required>
+              <option value="1">Hostel 1</option>
+              <option value="2">Hostel 2</option>
+              <option value="3" selected>Hostel 3</option>
+              <option value="4">Hostel 4</option>
+              <option value="5">Hostel 5</option>
+              <option value="6">Hostel 6</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Accent color</span>
+            <div class="color-row">
+              <input type="color" id="colorInput" value="#63d61f">
+              <input type="text" id="colorCodeInput" value="#63d61f" pattern="^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$" required>
+            </div>
+          </label>
+
+          <button type="submit" class="primary-btn">Generate Pass</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

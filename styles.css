@@ -1,0 +1,567 @@
+:root {
+  --bg-dark: #232323;
+  --bg-mid: #343434;
+  --phone-shadow: 0 18px 40px rgba(0, 0, 0, 0.2);
+  --card-border: #cfcfcf;
+  --text-main: #151515;
+  --accent: #63d61f;
+  --navy: #09196b;
+  --rate-border: #991616;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Nunito", sans-serif;
+  background:
+    linear-gradient(180deg, var(--bg-dark) 0 66px, var(--bg-mid) 66px 148px, #ececec 148px 100%);
+  min-height: 100vh;
+  color: var(--text-main);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.app-shell {
+  min-height: 100vh;
+}
+
+.screen {
+  display: none;
+}
+
+.screen-active {
+  display: block;
+}
+
+.form-screen {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 32px 16px;
+}
+
+.form-card {
+  width: min(100%, 470px);
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: 26px;
+  padding: 28px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.18);
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 12px;
+  font-weight: 800;
+  color: #707070;
+}
+
+.form-card h1 {
+  margin: 0;
+  font-size: 34px;
+  line-height: 1;
+}
+
+.subcopy {
+  margin: 12px 0 24px;
+  font-size: 15px;
+  color: #585858;
+}
+
+.mess-form {
+  display: grid;
+  gap: 16px;
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+  font-weight: 700;
+}
+
+.field span {
+  font-size: 14px;
+}
+
+.field input[type="text"],
+.field input[type="file"],
+.field select {
+  width: 100%;
+  border: 1px solid #d0d0d0;
+  border-radius: 14px;
+  padding: 14px 16px;
+  background: #fff;
+}
+
+.color-row {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 12px;
+}
+
+.field input[type="color"] {
+  width: 100%;
+  min-height: 54px;
+  border: 1px solid #d0d0d0;
+  border-radius: 14px;
+  background: #fff;
+  padding: 6px;
+}
+
+.primary-btn,
+.close-btn {
+  border: 0;
+  cursor: pointer;
+}
+
+.primary-btn {
+  margin-top: 8px;
+  border-radius: 18px;
+  padding: 15px 18px;
+  font-weight: 900;
+  background: #111;
+  color: #fff;
+}
+
+.pass-screen {
+  min-height: 100vh;
+}
+
+.phone-frame {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+}
+
+.top-status {
+  height: 66px;
+}
+
+.app-bar {
+  position: relative;
+  height: 82px;
+  background: var(--bg-mid);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 -2px 0 rgba(255, 255, 255, 0.2);
+}
+
+.app-bar::before {
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 54px;
+  height: 7px;
+  border-radius: 999px;
+  background: #d8d8d8;
+}
+
+.app-bar-title {
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.close-btn {
+  position: absolute;
+  right: 18px;
+  top: 11px;
+  background: transparent;
+  color: #fff;
+  font-size: 56px;
+  line-height: 1;
+  font-weight: 300;
+}
+
+.close-link {
+  text-decoration: none;
+}
+
+.pass-card {
+  position: relative;
+  margin: 16px 14px 0;
+  background: #fff;
+  border: 2px solid var(--card-border);
+  border-radius: 34px;
+  box-shadow: var(--phone-shadow);
+  padding: 52px 20px 0;
+  min-height: calc(100vh - 164px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.badge-circle {
+  position: absolute;
+  top: -14px;
+  right: 4px;
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #e0e0e0, #b9b9b9);
+  display: grid;
+  place-items: center;
+  font-size: 28px;
+  font-weight: 700;
+  color: #414141;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.22);
+}
+
+.top-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  align-items: start;
+}
+
+.photo-panel,
+.qr-panel {
+  text-align: center;
+}
+
+.panel-box {
+  height: 222px;
+  background: #fff;
+  border: 2px solid #313131;
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.23);
+  display: grid;
+  place-items: center;
+}
+
+.photo-panel img,
+.qr-panel img {
+  width: 176px;
+  height: 176px;
+  object-fit: cover;
+  display: block;
+}
+
+.panel-title {
+  margin: 12px 0 0;
+  font-size: 27px;
+  font-weight: 800;
+  line-height: 1.15;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+}
+
+.panel-title.strong {
+  margin-top: 18px;
+}
+
+.course-line,
+.assigned-line {
+  text-align: center;
+  margin: 40px 14px 0;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.35;
+  text-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.assigned-line {
+  margin-top: 38px;
+}
+
+.datetime-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 88px 22px 0;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.approval-text {
+  margin: 64px 0 0;
+  text-align: center;
+  color: var(--accent);
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 1.1;
+  text-shadow: 0 2px 4px rgba(125, 125, 125, 0.34);
+}
+
+.rate-box {
+  width: 150px;
+  margin: 18px auto 0;
+  border: 3px solid var(--rate-border);
+  border-radius: 14px;
+  color: #131313;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1.02;
+  padding: 2px 8px 6px;
+  position: relative;
+}
+
+.star {
+  position: absolute;
+  left: 7px;
+  top: 0;
+  font-size: 22px;
+  color: #f4ca57;
+}
+
+.bottom-banner {
+  margin-top: auto;
+  background: var(--navy);
+  padding: 32px 30px 28px;
+  margin-bottom: 0;
+}
+
+.bottom-paper {
+  background: #fff;
+  min-height: 500px;
+  height: 100%;
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.tick-stage {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  min-height: 100%;
+}
+
+.tick-ring {
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  border: 5px solid #111;
+  display: grid;
+  place-items: center;
+  position: relative;
+  background: #fff;
+  animation: tick-pop 1.2s ease-out both;
+}
+
+.tick-core {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #20c737;
+  animation: tick-core-pulse 1.8s ease-in-out infinite;
+}
+
+.tick-mark {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: scale(0.86);
+}
+
+.tick-mark path {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 34;
+  stroke-dashoffset: 34;
+  animation: tick-draw 0.55s ease-out 0.35s forwards;
+}
+
+.details-card {
+  margin: 0 14px;
+  background: #fff;
+  border-radius: 0 0 14px 14px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.18);
+  padding: 24px 18px 26px;
+}
+
+.detail-label {
+  margin: 0;
+  color: #505050;
+  font-size: 23px;
+  font-weight: 700;
+}
+
+.detail-value {
+  margin: 4px 0 18px;
+  color: #666;
+  font-size: 22px;
+  line-height: 1.38;
+}
+
+.detail-value:last-child {
+  margin-bottom: 0;
+}
+
+.verification-card {
+  margin: 54px 14px 0;
+  border: 4px solid #222;
+  border-radius: 22px;
+  background: #fff;
+  min-height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 0 20px;
+  font-size: 25px;
+  font-weight: 800;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+.page-footer {
+  display: grid;
+  place-items: center;
+  padding: 36px 0 18px;
+}
+
+.home-indicator {
+  width: 178px;
+  height: 7px;
+  border-radius: 999px;
+  background: #7f7f7f;
+}
+
+@keyframes tick-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+
+  70% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes tick-core-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+@keyframes tick-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .app-bar-title {
+    font-size: 23px;
+  }
+
+  .close-btn {
+    font-size: 42px;
+    top: 18px;
+  }
+
+  .pass-card {
+    border-radius: 28px;
+    padding: 44px 14px 0;
+  }
+
+  .top-grid {
+    gap: 12px;
+  }
+
+  .panel-box {
+    height: 160px;
+  }
+
+  .photo-panel img,
+  .qr-panel img {
+    width: 122px;
+    height: 122px;
+  }
+
+  .panel-title {
+    font-size: 18px;
+  }
+
+  .course-line,
+  .assigned-line,
+  .datetime-row {
+    font-size: 17px;
+  }
+
+  .course-line {
+    margin-top: 30px;
+  }
+
+  .assigned-line {
+    margin-top: 28px;
+  }
+
+  .datetime-row {
+    margin-top: 52px;
+  }
+
+  .approval-text {
+    margin-top: 44px;
+    font-size: 27px;
+  }
+
+  .rate-box {
+    width: 118px;
+    font-size: 18px;
+  }
+
+  .bottom-banner {
+    margin-top: auto;
+    padding: 22px 18px 38px;
+  }
+
+  .bottom-paper {
+    min-height: 360px;
+  }
+
+  .tick-ring {
+    width: 72px;
+    height: 72px;
+  }
+
+  .tick-core {
+    width: 42px;
+    height: 42px;
+  }
+
+  .detail-label {
+    font-size: 15px;
+  }
+
+  .detail-value {
+    font-size: 13px;
+    margin-bottom: 12px;
+  }
+
+  .details-card {
+    padding: 18px 14px 20px;
+  }
+
+  .verification-card {
+    margin-top: 32px;
+    min-height: 64px;
+    padding: 0 16px;
+    font-size: 14px;
+  }
+}

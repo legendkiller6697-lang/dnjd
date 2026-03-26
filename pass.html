@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mess Pass</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="screen screen-active pass-screen">
+      <div class="phone-frame">
+        <div class="top-status"></div>
+        <div class="app-bar">
+          <span class="app-bar-title">Mess Pass</span>
+          <a class="close-btn close-link" href="index.html" aria-label="Back to form">&times;</a>
+        </div>
+
+        <div class="pass-card">
+          <div class="badge-circle" id="countdownBadge">30</div>
+
+          <div class="top-grid">
+            <div class="photo-panel">
+              <div class="panel-box">
+                <img id="previewPhoto" alt="Student">
+              </div>
+              <p class="panel-title strong" id="previewReg">12416321</p>
+              <p class="panel-title" id="previewName">Akshit kala</p>
+            </div>
+
+            <div class="qr-panel">
+              <div class="panel-box qr-box">
+                <img id="previewQr" alt="QR Code">
+              </div>
+              <p class="panel-title strong" id="previewMeal">Lunch</p>
+              <p class="panel-title" id="previewMess">Mess BH-3</p>
+            </div>
+          </div>
+
+          <p class="course-line">P132:B.Tech. (Computer Science and Engineering)(2024)</p>
+          <p class="assigned-line" id="previewAssignedMess">Your Assigned Mess - Mess BH-3</p>
+
+          <div class="datetime-row">
+            <span id="previewDate">Mar 24, 2026</span>
+            <span id="previewTime">01:08 PM</span>
+          </div>
+
+          <p class="approval-text" id="approvalText">Meal Approved</p>
+
+          <div class="rate-box" id="rateBox">
+            <span class="star">&#9733;</span>
+            <span>RATE</span>
+            <span>US</span>
+          </div>
+
+          <div class="bottom-banner">
+            <div class="bottom-paper">
+              <div class="tick-stage">
+                <div class="tick-ring">
+                  <div class="tick-core"></div>
+                  <svg class="tick-mark" viewBox="0 0 52 52" aria-hidden="true">
+                    <path d="M14 27.5 22.5 36 39 18.5"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="details-card">
+            <p class="detail-label">Father's Name</p>
+            <p class="detail-value">Sanjay Verma (9812345678)</p>
+
+            <p class="detail-label">Mother's Name</p>
+            <p class="detail-value">Meena Verma (+91-9123456780)</p>
+
+            <p class="detail-label">Address</p>
+            <p class="detail-value">42 Lake View Road, Shanti Nagar, Bhopal, Madhya Pradesh - 462016</p>
+
+            <p class="detail-label">Session</p>
+            <p class="detail-value">P132:B.Tech. (Computer Science and Engineering)(2024)</p>
+
+            <p class="detail-label">Hostel</p>
+            <p class="detail-value" id="previewHostelDetail">Boys Hostel-05 - C118-Bed B (Standard Non-AC 3 Seater)</p>
+
+            <p class="detail-label">Emergency Contact</p>
+            <p class="detail-value">Guardian Helpline: +91-9345678120</p>
+          </div>
+
+          <div class="verification-card">
+            <span>Verification Code</span>
+            <span>18347572</span>
+          </div>
+
+          <div class="page-footer">
+            <div class="home-indicator"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
