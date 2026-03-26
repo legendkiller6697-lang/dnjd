@@ -57,7 +57,6 @@ function isValidHex(value) {
 
 function updateAccent(color) {
   document.documentElement.style.setProperty("--accent", color);
-  approvalText.style.color = color;
   rateBox.style.boxShadow = `0 0 0 1px ${color}25`;
 }
 
@@ -95,12 +94,18 @@ if (colorInput && colorCodeInput) {
   });
 }
 
+if (regInput) {
+  regInput.addEventListener("input", () => {
+    regInput.value = regInput.value.replace(/\D/g, "").slice(0, 6);
+  });
+}
+
 if (form) {
   form.addEventListener("submit", (event) => {
     event.preventDefault();
 
     const name = nameInput.value.trim() || "Akshit kala";
-    const regNo = regInput.value.trim() || "12416321";
+    const regNo = (regInput.value.trim() || "124163").replace(/\D/g, "").slice(0, 6);
     const meal = mealInput.value || "Lunch";
     const hostelNumber = hostelInput.value || "3";
     const accent = isValidHex(colorCodeInput.value) ? colorCodeInput.value : colorInput.value;
@@ -132,7 +137,7 @@ if (form) {
 if (previewName && previewReg && previewDate && previewTime && previewQr && approvalText) {
   const params = new URLSearchParams(window.location.search);
   const name = params.get("name") || "Akshit kala";
-  const regNo = params.get("regNo") || "12416321";
+  const regNo = ((params.get("regNo") || "124163").replace(/\D/g, "").slice(0, 6)) || "124163";
   const meal = params.get("meal") || "Lunch";
   const hostelNumber = params.get("hostel") || "3";
   const accent = isValidHex(params.get("accent") || "") ? params.get("accent") : "#63d61f";
