@@ -1,73 +1,562 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mess Pass Generator</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8" />
+<meta name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>Mess Coupon</title>
+
+<style>
+  * { box-sizing: border-box; }
+
+  body {
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+    margin: 0;
+    font-family: Arial;
+    overflow: hidden;
+    touch-action: none;
+    background: #fff;
+  }
+
+  /* Header */
+.header {
+  display: flex;
+  align-items: center;        
+  background-color: #333333;
+  color: white;
+  padding: 10px 15px;
+  font-weight: bold;
+  font-size: 15px;
+  justify-content: space-between;
+}
+
+.back-arrow {
+  font-size: 26px;            
+  font-weight: 900;           
+  cursor: pointer;
+  display: flex;
+  align-items: center;        
+}
+
+  .back-arrow { font-size: 24px; cursor: pointer; }
+  .titles { display: flex; gap: 40px; }
+
+  /* Main */
+  .main-container {
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  /* Profile card */
+  .card {
+    margin: 10px 10px 0;
+    padding: 25px 15px 20px;
+    border-radius: 12px;
+    background: linear-gradient(90deg, #fe8573 10%, #ffd57a 100%);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    color: #222;
+    font-weight: 400;
+  }
+
+  .profile-pic {
+    width: 110px;
+    height: 110px;
+    border-radius: 10px;
+    display: block;
+    object-fit: cover;
+    margin: 0 auto 10px;
+  }
+
+  .name {
+    text-align: center;
+    font-weight: 900;
+    font-size: 17px;
+    margin-bottom: 15px;
+  }
+
+.info-block {
+  margin-bottom: 10px;   /* next section se gap */
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.info-block strong {
+  display: block;
+  margin-bottom: 3px;    /* title aur value ke beech gap */
+  font-weight: 700;
+}
+
+  /* BELOW PROFILE SECTION */
+  .below-profile-section {
+    margin: 0 10px 70px;
+    background: #fff;
+    padding: 5px 30px 25px;   
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    border-radius: 0 0 12px 12px;
+  }
+
+  .below-profile-section p {
+    text-align: center;
+    font-weight: 900;
+    font-size: 22px;
+    margin-bottom: 5px;
+  }
+
+  /* RATE US */
+ .rate-button {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  font-weight: 900;
+  border: 2.5px solid #a10404;
+  border-radius: 6px;
+  padding: 1px 6px;
+  font-size: 16px;
+  background: white;
+  cursor: pointer;
+
+  display: block;        
+  margin: 3px auto;      
+  width: fit-content;    
+}
+  .rate-button span {
+    color: goldenrod;
+    font-size: 15px;
+    margin-right: 2px;
+  }
+
+  /* MEAL BUTTONS GRID */
+  .meal-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px 20px;    
+  }
+
+  /* MEAL BUTTON */
+  .meal-button {
+    background: linear-gradient(90deg, #fe8573 10%, #ffd57a 100%);
+    padding: 19px 0;
+    text-align: center;
+    border-radius: 8px;
+    font-weight: 900;
+    font-size: 15px;
+    color: #3c1300;
+    box-shadow: 0px 6px 10px rgba(108,49,6,0.4);
+    cursor: pointer;
+  }
+
+  /* POPUP MODAL */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+  }
+  .modal-overlay.active {
+    display: flex;
+  }
+
+  .modal {
+    background: white;
+    padding: 25px;
+    width: 90%;
+    max-width: 380px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    border-radius: 12px;
+  }
+
+  .modal h2 {
+    font-weight: 900;
+    text-align: center;
+  }
+
+  .modal input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 2px solid #fc6f65;
+    margin-top: 10px;
+    font-size: 17px;
+  }
+
+  .color-preview {
+    margin-top: 15px;
+    height: 60px;
+    border: 2px solid #3c1300;
+    border-radius: 10px;
+  }
+
+  .modal-buttons {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  /* Image Input Styling */
+  .image-input-container {
+    margin-top: 12px;
+  }
+  
+  .image-input-container label {
+    display: block;
+    font-weight: 900;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #333;
+  }
+
+  #profileImageInput {
+    width: 100%;
+    padding: 8px;
+    border: 2px dashed #fc6f65;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  #imagePreviewContainer {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+  }
+
+  #imagePreview {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fc6f65;
+    display: none;
+  }
+
+  .btn {
+    padding: 8px 25px;
+    border-radius: 20px;
+    font-weight: 900;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-submit {
+    background: linear-gradient(90deg,#fc6f65,#febb68);
+    color: #3c1300;
+  }
+
+  .btn-cancel {
+    background: #b94a43;
+    color: white;
+  }
+
+  /* --------------------------------------
+     ⭐ NEW: BOTTOM SLIDER (Sketchware Optimized)
+     -------------------------------------- */
+#rateusSheet {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 80%;
+  background: #ffffff;
+  border-radius: 18px 18px 0 0;
+  box-shadow: 0 -5px 20px rgba(0,0,0,0.35);
+
+  transform: translateY(100%);
+  transition: transform 0.35s ease-out;
+
+  z-index: 999999;
+  overflow: hidden;
+}
+
+#rateusFrame {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+</style>
 </head>
+
 <body>
-  <main class="app-shell">
-    <section class="screen screen-active form-screen" id="formScreen">
-      <div class="form-card">
-        <p class="eyebrow">Mess Pass Maker</p>
-        <h1>Build your 2-page pass app</h1>
-        <p class="subcopy">Upload the student image, enter the details, and generate a screen styled like the reference.</p>
 
-        <form id="messPassForm" class="mess-form">
-          <label class="field">
-            <span>Student image</span>
-            <input type="file" id="photoInput" accept="image/*" required>
-          </label>
+<div class="header">
+  <div class="back-arrow">&#8592;</div>
 
-          <label class="field">
-            <span>Name</span>
-            <input type="text" id="nameInput" placeholder="rahul yadav" required>
-          </label>
+ <div class="titles" style="display:flex; gap:40px; align-items:center;">
+    <div style="font-weight:900;">Mess Coupon</div>
+    <div>Meal History</div>
+</div>
+</div>
 
-          <label class="field">
-            <span>Registration number</span>
-            <input type="text" id="regInput" placeholder="12222222" inputmode="numeric" maxlength="8" required>
-          </label>
+<div class="main-container">
 
-          <label class="field">
-            <span>Meal type</span>
-            <select id="mealInput" required>
-              <option value="Breakfast">Breakfast</option>
-              <option value="Lunch" selected>Lunch</option>
-              <option value="Dinner">Dinner</option>
-            </select>
-          </label>
+  <!-- PROFILE CARD -->
+  <div class="card">
+    <img src="profile.png" class="profile-pic" />
+    <div class="name">Rishav Kumar</div>
 
-          <label class="field">
-            <span>Hostel number</span>
-            <select id="hostelInput" required>
-              <option value="1">Hostel 1</option>
-              <option value="2">Hostel 2</option>
-              <option value="3" selected>Hostel 3</option>
-              <option value="4">Hostel 4</option>
-              <option value="5">Hostel 5</option>
-              <option value="6">Hostel 6</option>
-            </select>
-          </label>
+    <div class="info-block">
+      <strong>Father's Name</strong>
+      Munna Singh (9631029570)
+    </div>
 
-          <label class="field">
-            <span>Accent color</span>
-            <div class="color-row">
-              <input type="color" id="colorInput" value="#63d61f">
-              <input type="text" id="colorCodeInput" value="#63d61f" pattern="^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$" required>
-            </div>
-          </label>
+    <div class="info-block">
+      <strong>Mother's Name</strong>
+      Rekha Devi (+91-7903028900)
+    </div>
 
-          <button type="submit" class="primary-btn">Generate Pass</button>
-        </form>
+    <div class="info-block">
+      <strong>Program Name</strong>
+      P542:Bachelor of Physiotherapy (BPT)(2024)
+    </div>
+
+    <div class="info-block">
+      <strong>Hostel</strong>
+      Boys Hostel-03- B912-Bed D (Standard Air Cooled 4 Seater)
+    </div>
+  </div>
+
+  <!-- BELOW PROFILE -->
+  <section class="below-profile-section">
+
+    <p>Tap on the meal name to scan and avail food.</p>
+
+    <div class="rate-button" onclick="openRateUs()" tabindex="0">
+      <span>★</span> RATE US
+    </div>
+
+    <div class="meal-buttons">
+      <div class="meal-button" data-meal="BreakFast">BreakFast →</div>
+      <div class="meal-button" data-meal="Dinner">Dinner →</div>
+      <div class="meal-button" data-meal="Lunch">Lunch →</div>
+      <div class="meal-button" data-meal="Tea">Tea →</div>
+    </div>
+
+  </section>
+
+</div>
+
+<!-- POPUP MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <h2>Enter Colour Code</h2>
+
+    <input type="text" id="colorCodeInput" placeholder="#fc6f65" />
+    
+    <select id="messSelect" style="
+  width:100%;
+  padding:12px;
+  margin-top:12px;
+  font-size:16px;
+  font-weight:900;
+  border-radius:8px;
+  border:2px solid #fc6f65;
+">
+  <option value="Mess-Centre-01">Mess-Centre-01</option>
+  <option value="Mess BH-3" selected>Mess BH-3</option>
+  <option value="CCM-BH-02">CCM-BH-02</option>
+</select>
+
+    <div class="image-input-container">
+      <label>Change Profile Image (Optional)</label>
+      <input type="file" id="profileImageInput" accept="image/*" />
+      <div id="imagePreviewContainer">
+        <img id="imagePreview" src="" alt="Preview" />
       </div>
-    </section>
-  </main>
+    </div>
 
-  <script src="script.js"></script>
+    <div class="color-preview" id="colorPreview"></div>
+
+    <div class="modal-buttons">
+      <button class="btn btn-submit" id="btnSubmit">Submit</button>
+      <button class="btn btn-cancel" id="btnCancel">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- ⭐ NEW BOTTOM SLIDER -->
+<div id="rateusSheet">
+  <iframe id="rateusFrame"></iframe>
+</div>
+
+<!-- ORIGINAL SCRIPT + SLIDER SCRIPT -->
+<script>
+const mealButtons = document.querySelectorAll('.meal-button');
+const modalOverlay = document.getElementById('modalOverlay');
+const colorInput = document.getElementById('colorCodeInput');
+const colorPreview = document.getElementById('colorPreview');
+const messSelect = document.getElementById('messSelect');
+const btnCancel = document.getElementById('btnCancel');
+const btnSubmit = document.getElementById('btnSubmit');
+const profileImageInput = document.getElementById('profileImageInput');
+const imagePreview = document.getElementById('imagePreview');
+
+let activeMeal = null;
+let customImageBase64 = null;
+
+function isValidColor(code) {
+  const s = new Option().style;
+  s.color = code;
+  return s.color !== "";
+}
+
+function openModal(meal) {
+  activeMeal = meal;
+  colorInput.value = '';
+  colorPreview.style.background = 'transparent';
+  profileImageInput.value = '';
+  imagePreview.style.display = 'none';
+  customImageBase64 = null;
+  modalOverlay.classList.add('active');
+}
+
+mealButtons.forEach(btn => {
+  btn.addEventListener("click", () => openModal(btn.dataset.meal));
+});
+
+btnCancel.onclick = () => modalOverlay.classList.remove("active");
+
+colorInput.oninput = () => {
+  const v = colorInput.value.trim();
+  colorPreview.style.background = isValidColor(v) ? v : "transparent";
+};
+
+profileImageInput.onchange = (e) => {
+  const file = e.target.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      customImageBase64 = event.target.result;
+      imagePreview.src = customImageBase64;
+      imagePreview.style.display = 'block';
+    };
+    reader.readAsDataURL(file);
+  }
+};
+
+btnSubmit.onclick = () => {
+  const code = colorInput.value.trim();
+  const mess = messSelect.value;
+
+  if (!isValidColor(code)) {
+    alert("Please enter valid color!");
+    return;
+  }
+
+  // Save image to localStorage if provided
+  if (customImageBase64) {
+    localStorage.setItem('customProfileImage', customImageBase64);
+  }
+
+  window.location.href =
+    `meal.html?meal=${activeMeal}&color=${encodeURIComponent(code)}&mess=${encodeURIComponent(mess)}`;
+};
+
+/* ==========================================
+   ⭐ RATE US SLIDER (WebView Optimized)
+========================================== */
+
+function openRateUs() {
+  const sheet = document.getElementById("rateusSheet");
+  const frame = document.getElementById("rateusFrame");
+
+  // Always reset slider before opening
+  sheet.style.transition = "none";
+  sheet.style.bottom = "-100%";
+  sheet.style.transform = "translateY(0)";
+
+  // Force a layout refresh (important!)
+  void sheet.offsetHeight;
+
+  // Restore animation
+  sheet.style.transition = "bottom 0.45s cubic-bezier(.25,.8,.25,1.15), transform 0.25s ease-out";
+
+  // Load feedback page
+  frame.src = "rateus.html";
+
+  // Slide up
+  sheet.style.bottom = "0";
+
+  // Bounce animation
+  setTimeout(() => {
+    sheet.style.transform = "translateY(-8px)";
+  }, 240);
+
+  setTimeout(() => {
+    sheet.style.transform = "translateY(0)";
+  }, 380);
+}
+
+function closeRateUs() {
+  document.getElementById("rateusSheet").style.transform = "translateY(100%)";
+}
+
+
+/* ==========================================
+   ⭐ DRAG TO CLOSE (WebView Safe)
+========================================== */
+
+let startY = 0;
+let currentY = 0;
+let isDragging = false;
+
+const sheet = document.getElementById("rateusSheet");
+
+sheet.addEventListener("touchstart", (e) => {
+  isDragging = true;
+  startY = e.touches[0].clientY;
+});
+
+sheet.addEventListener("touchmove", (e) => {
+  if (!isDragging) return;
+
+  currentY = e.touches[0].clientY - startY;
+
+  // Drag downward only
+  if (currentY > 0) {
+    sheet.style.transform = `translateY(${currentY}px)`;
+  }
+});
+
+sheet.addEventListener("touchend", () => {
+  if (!isDragging) return;
+  isDragging = false;
+
+  // Close if dragged down enough
+  if (currentY > 120) {
+    closeRateUs();
+  } else {
+    sheet.style.transform = "translateY(0)";
+  }
+
+  currentY = 0;
+});
+
+// LISTEN FOR CLOSE MESSAGE FROM rateus.html
+window.addEventListener("message", (event) => {
+  if (event.data === "close-slider") {
+      const sheet = document.getElementById("rateusSheet");
+
+      // Smooth slide down animation
+      sheet.style.transform = "translateY(0)";
+      sheet.style.bottom = "-100%";
+  }
+});
+// LOAD SAVED IMAGE ON DASHBOARD
+const savedDashImage = localStorage.getItem('customProfileImage');
+if (savedDashImage) {
+  const dashPic = document.querySelector(".profile-pic");
+  if (dashPic) dashPic.src = savedDashImage;
+}
+
+</script>
+
 </body>
 </html>
